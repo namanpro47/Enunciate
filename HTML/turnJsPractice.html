@@ -8,20 +8,18 @@
      <script type="text/javascript" src="../../extras/jquery.mousewheel.min.js"></script>
      <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
      <script type="text/javascript" src="../../lib/hash.js"></script>    
-     <style> body{
-            overflow:hidden;
-        }
+     <style>
         
         #flipbook{
-            width:1248px;
-            height:780px;
+            width:1368.9px;
+            height:441.45px;
         }
         
         #flipbook .page{
-            width:1248px;
-            height:780px;
-            background-color:white;
-            line-height:300px;
+            width:1368.9px;
+            height:441.45px;
+            background-color:rgb(255, 255, 255);
+            line-height:30px;
             font-size:20px;
             text-align:center;
         }
@@ -35,8 +33,9 @@
         }
         
         #flipbook .hard{
-            background:#ccc !important;
-            color:#333;
+            background:rgb(37, 105, 168) !important;
+            color:rgb(255, 255, 255);
+            line-height: 300px !important;
             -webkit-box-shadow:inset 0 0 5px #666;
             -moz-box-shadow:inset 0 0 5px #666;
             -o-box-shadow:inset 0 0 5px #666;
@@ -46,13 +45,12 @@
         }
         
         #flipbook .odd{
-            
             background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
-            -webkit-box-shadow:inset 0 0 5px #666;
+            -webkit-box-shadow:inset 0 0 30px #666;
             -moz-box-shadow:inset 0 0 5px #666;
             -o-box-shadow:inset 0 0 5px #666;
             -ms-box-shadow:inset 0 0 5px #666;
@@ -74,24 +72,75 @@
             box-shadow:inset 0 0 5px #666;
         }</style>
 </head>
-<body> 
-        
-    
+<body>   
     
     <div id="flipbook">
-                <div class="hard"> Turn.js </div> 
+                <div class="hard"> The Itsy Bitsy Spider </div> 
                 <div class="hard"></div>
-                <div> Page 1 </div>
-                <div> Page 2 </div>
-                <div> Page 3 </div>
-                <div> Page 4 </div>
+                
+                <!--page 1-->
+                <div>
+                    <img src="spider1.png" width="590" height="295"></img>
+                    <br></br>
+                    <p style="font-size:160%;">The itsy bitsy spider</p>
+                </div>
+                
+                <!--page 2-->
+                <div>
+                    <img src="spider2.png" width="590" height="295"></img>
+                    <br></br>
+                    <p style="font-size:160%;">climbed up the water spout</p>
+                </div>
+                
+                <!--page 3-->
+                <div>
+                    <img src="spider3.png" width="595" height="290"></img>
+                    <br></br>
+                    <p style="font-size:160%;">Down came the rain</p>
+                </div>
+
+                <!--page 4-->
+                <div>
+                    <img src="spider4.png" width="595" height="290"></img>
+                    <br></br>
+                    <p style="font-size:160%;">and washed the spider out</p>
+                </div>
+
+                <!--page 5-->
+                <div>
+                        <img src="spider5.png" width="595" height="290"></img>
+                        <br></br>
+                        <p style="font-size:160%;">Out came the sun</p>
+                </div>
+
+                <!--page 6-->
+                <div>
+                        <img src="spider6.png" width="595" height="290"></img>
+                        <br></br>
+                        <p style="font-size:160%;">and dried up all the rain</p>
+                </div>
+
+                <!--page 7-->
+                <div>
+                        <img src="spider7.png" width="595" height="290"></img>
+                        <br></br>
+                        <p style="font-size:160%;">And the itsy bitsy</p>
+                </div>
+
+                <!--page 8-->
+                <div>
+                        <img src="spider8.png" width="595" height="290"></img>
+                        <br></br>
+                        <p style="font-size:160%;">climbed up the spout again</p>
+                </div>
+
                 <div class="hard"></div>
                 <div class="hard"></div>
             </div>
             <script type="text/javascript">
                      $("#flipbook").turn({
-                width: 1248,
-                height: 780,
+                width: 1368.9,
+                height: 441.45,
                 autoCenter: true
             });
             </script>
