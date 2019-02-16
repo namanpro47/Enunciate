@@ -3,18 +3,23 @@
 <head> 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
      <script src="http://www.turnjs.com/lib/turn.min.js"> </script>
+     <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+     <script type="text/javascript" src="../../extras/jquery-ui-1.8.20.custom.min.js"></script>
+     <script type="text/javascript" src="../../extras/jquery.mousewheel.min.js"></script>
+     <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+     <script type="text/javascript" src="../../lib/hash.js"></script>    
      <style> body{
             overflow:hidden;
         }
         
         #flipbook{
-            width:400px;
-            height:300px;
+            width:1248px;
+            height:780px;
         }
         
         #flipbook .page{
-            width:400px;
-            height:300px;
+            width:1248px;
+            height:780px;
             background-color:white;
             line-height:300px;
             font-size:20px;
@@ -85,8 +90,8 @@
             </div>
             <script type="text/javascript">
                      $("#flipbook").turn({
-                width: 400,
-                height: 300,
+                width: 1248,
+                height: 780,
                 autoCenter: true
             });
             </script>
