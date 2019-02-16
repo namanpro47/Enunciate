@@ -545,9 +545,132 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="more" role="tabpanel">
-                                    <h3>Consectetur adipisicing elit, sed do eiusmod</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis.</p>
-                                    <p>Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>
+                                    <h3>Microsoft Speech Recognition</h3>
+                                    <p>Book Goes Here.</p>
+
+                                    <!-- Book Code -->
+
+
+
+
+
+
+
+
+                                    <!-- End Book Code -->
+
+
+
+
+
+                                    <!-- UI code goes here -->
+
+                                    <div id="warning">
+									  <h1 style="font-weight:500;">Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+									</div>
+
+									<div id="content" style="display:none">
+									  <table width="100%">
+									    <tr>
+									      <td></td>
+									      <td><h1 style="font-weight:500;">Microsoft Cognitive Services Speech SDK JavaScript Quickstart</h1></td>
+									    </tr>
+									    <tr>
+									      <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+									      <td><input id="subscriptionKey" type="text" size="40" value="subscription"></td>
+									    </tr>
+									    <tr>
+									      <td align="right">Region</td>
+									      <td><input id="serviceRegion" type="text" size="40" value="YourSubscriptionServiceRegion"></td>
+									    </tr>
+									    <tr>
+									      <td></td>
+									      <td><button id="startRecognizeOnceAsyncButton">Start recognition</button></td>
+									    </tr>
+									    <tr>
+									      <td align="right" valign="top">Results</td>
+									      <td><textarea id="phraseDiv" style="display: inline-block;width:500px;height:200px"></textarea></td>
+									    </tr>
+									  </table>
+									</div>
+
+ 									<!-- SDK reference goes here -->
+ 									<!-- Speech SDK reference sdk. -->
+									<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+									<!-- Speech SDK USAGE -->
+									<script>
+									  // status fields and start button in UI
+									  var phraseDiv;
+									  var startRecognizeOnceAsyncButton;
+
+									  // subscription key and region for speech services.
+									  var subscriptionKey, serviceRegion;
+									  var authorizationToken;
+									  var SpeechSDK;
+									  var recognizer;
+
+									  document.addEventListener("DOMContentLoaded", function () {
+									    startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+									    subscriptionKey = document.getElementById("subscriptionKey");
+									    serviceRegion = document.getElementById("serviceRegion");
+									    phraseDiv = document.getElementById("phraseDiv");
+
+									    startRecognizeOnceAsyncButton.addEventListener("click", function () {
+									      startRecognizeOnceAsyncButton.disabled = true;
+									      phraseDiv.innerHTML = "";
+
+									      // if we got an authorization token, use the token. Otherwise use the provided subscription key
+									      var speechConfig;
+									      if (authorizationToken) {
+									        speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(authorizationToken, serviceRegion.value);
+									      } else {
+									        if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
+									          alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+									          return;
+									        }
+									        speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
+									      }
+
+									      speechConfig.speechRecognitionLanguage = "en-US";
+									      var audioConfig  = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+									      recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+
+									      recognizer.recognizeOnceAsync(
+									        function (result) {
+									          startRecognizeOnceAsyncButton.disabled = false;
+									          phraseDiv.innerHTML += result.text;
+									          window.console.log(result);
+
+									          recognizer.close();
+									          recognizer = undefined;
+									        },
+									        function (err) {
+									          startRecognizeOnceAsyncButton.disabled = false;
+									          phraseDiv.innerHTML += err;
+									          window.console.log(err);
+
+									          recognizer.close();
+									          recognizer = undefined;
+									        });
+									    });
+
+									    if (!!window.SpeechSDK) {
+									      SpeechSDK = window.SpeechSDK;
+									      startRecognizeOnceAsyncButton.disabled = false;
+
+									      document.getElementById('content').style.display = 'block';
+									      document.getElementById('warning').style.display = 'none';
+
+									      // in case we have a function for getting an authorization token, call it.
+									      if (typeof RequestAuthorizationToken === "function") {
+									          RequestAuthorizationToken();
+									      }
+									    }
+									  });
+									</script>
+ 									<!-- Optional authorization token request goes here -->
+
+ 									<!-- Sample code goes here -->
                                 </div><!-- /.tab-pane -->
 
                                 <div class="tab-pane" id="product-details" role="tabpanel">
