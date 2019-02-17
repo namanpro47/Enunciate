@@ -11,13 +11,13 @@
      <style>
         
         #flipbook{
-            width:500px;
-            height:200px;
+            width:1200px;
+            height:700px;
         }
         
         #flipbook .page{
-            width:500px;
-            height:200px;
+            width:1200px;
+            height:700px;
             background-color:rgb(255, 255, 255);
             line-height:30px;
             font-size:20px;
@@ -33,7 +33,7 @@
         }
         
         #flipbook .hard{
-            background:rgb(37, 105, 168) !important;
+            background:rgb(175, 141, 67) !important;
             color:rgb(255, 255, 255);
             line-height: 300px !important;
             -webkit-box-shadow:inset 0 0 5px #666;
@@ -76,65 +76,56 @@
     
     <!--Book Code-->
     <div id="flipbook">
-                <div class="hard"> The Itsy Bitsy Spider </div> 
+                <!--Front Cover-->
+                <div class="hard"> Wind on the Hill </div> 
                 <div class="hard"></div>
                 
-                <!--page 1-->
+                <!--Page 1-->
                 <div>
-                    <img src="spider1.png" width="500" height="280" style="margin-top: 50px"></img>
-                    <br></br>
-                    <p style="font-size:160%;">The itsy bitsy spider</p>
+                    <h1 class="entry-title fn" itemprop="name">Wind On The Hill</h1>
+                    <h2 class="author">						
+                            By <span itemprop="author">A. A. Milne</span>										
+                    </h2>
+                    <p id="p1">No One can tell me,</p>
+                    <p id="p2">Nobdy knows,</p>
+                    <p id="p3">Where the wind comes from,</p>
+                    <p id="p4">Where the wind goes.</p>
+                    <img src="book2img1.jpg" width="400" height="275"></img>
                 </div>
                 
-                <!--page 2-->
+                <!--Page 2-->
                 <div>
-                    <img src="spider2.png" width="590" height="295"></img>
                     <br></br>
-                    <p style="font-size:160%;">climbed up the water spout</p>
+                    <p id="p5">It's flying from somewhere</p>
+                    <p id="p6">As fast as it can</p>
+                    <p id="p7">I couldn't keep up with it,</p>
+                    <p id="p8">Not if I ran</p>
+                    <br></br>
+                    <p id="p9">But if I stopped holding</p>
+                    <p id="p10">The string of my kite,</p>
+                    <p id="p11">It would blow with the wind</p>
+                    <p id="p12">For a day and night.</p>
+                </div>
+
+                <!--Page 3-->
+                <div>
+                    <br></br>
+                    <p id="p13">And then when I found it,</p>
+                    <p id="p14">Wherever it blew,</p>
+                    <p id="p15">I should know that the wind</p>
+                    <p id="p16">Had been going there too.</p>
+                    <br></br>
+                    <p id="p17">So then I could tell them</p>
+                    <p id="p18">Where the wind goes...</p>
+                    <p id="p19">But where the wind comes from</p>
+                    <p id="p20">Nobody knows.</p>
                 </div>
                 
-                <!--page 3-->
-                <div>
-                    <img src="spider3.png" width="595" height="290"></img>
-                    <br></br>
-                    <p style="font-size:160%;">Down came the rain</p>
+                <!--Page for Back Cover-->
+                <div> 
                 </div>
-
-                <!--page 4-->
-                <div>
-                    <img src="spider4.png" width="595" height="290"></img>
-                    <br></br>
-                    <p style="font-size:160%;">and washed the spider out</p>
-                </div>
-
-                <!--page 5-->
-                <div>
-                        <img src="spider5.png" width="595" height="290"></img>
-                        <br></br>
-                        <p style="font-size:160%;">Out came the sun</p>
-                </div>
-
-                <!--page 6-->
-                <div>
-                        <img src="spider6.png" width="595" height="290"></img>
-                        <br></br>
-                        <p style="font-size:160%;">and dried up all the rain</p>
-                </div>
-
-                <!--page 7-->
-                <div>
-                        <img src="spider7.png" width="595" height="290"></img>
-                        <br></br>
-                        <p style="font-size:160%;">And the itsy bitsy</p>
-                </div>
-
-                <!--page 8-->
-                <div>
-                        <img src="spider8.png" width="595" height="290"></img>
-                        <br></br>
-                        <p style="font-size:160%;">climbed up the spout again</p>
-                </div>
-
+                
+                <!--Back Cover-->
                 <div class="hard"></div>
                 <div class="hard"></div>
             </div>
@@ -142,8 +133,8 @@
             <!--End Book Code-->
             <script type="text/javascript">
                      $("#flipbook").turn({
-                width: 500,
-                height: 200,
+                width: 1200,
+                height: 700,
                 autoCenter: true
             });
             </script>

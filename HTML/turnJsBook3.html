@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="http://www.turnjs.com/lib/turn.min.js"> </script>
+     <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+     <script type="text/javascript" src="../../extras/jquery-ui-1.8.20.custom.min.js"></script>
+     <script type="text/javascript" src="../../extras/jquery.mousewheel.min.js"></script>
+     <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+     <script type="text/javascript" src="../../lib/hash.js"></script>    
+     <style>
+        
+        #flipbook{
+            width:1200px;
+            height:700px;
+        }
+        
+        #flipbook .page{
+            width:1200px;
+            height:700px;
+            background-color:rgb(255, 255, 255);
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+        }
+        
+        #flipbook .page-wrapper{
+            -webkit-perspective:2000px;
+            -moz-perspective:2000px;
+            -ms-perspective:2000px;
+            -o-perspective:2000px;
+            perspective:2000px;
+        }
+        
+        #flipbook .hard{
+            background:rgb(175, 141, 67) !important;
+            color:rgb(255, 255, 255);
+            line-height: 300px !important;
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            font-weight:bold;
+        }
+        
+        #flipbook .odd{
+            background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            -webkit-box-shadow:inset 0 0 30px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            
+        }
+        
+        #flipbook .even{
+            
+            background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+        }</style>
+</head>
+<body>   
+    
+    <!--Book Code-->
+    <div id="flipbook">
+                <!--Front Cover-->
+                <div class="hard"> You Belong With Me </div> 
+                <div class="hard"></div>
+                
+                <!--Page 1-->
+                <div>
+                    <h1 class="entry-title fn" itemprop="name">You Belong With Me</h1>
+                    <h2 class="author">						
+                            By <span itemprop="author">Taylor Swift</span>										
+                    </h2>
+                    <br></br>
+                    <h3>
+                        [Verse 1]
+                    </h3>
+                    <p id="p1">You're on the phone with your girlfriend, she's upset</p>
+                    <p id="p2">She's going off about something that you said</p>
+                    <p id="p3">'Cause she doesn't get your humor like I do</p>
+                    <p id="p4">I'm in the room, it's a typical Tuesday night</p>
+                    <p id="p5">I'm listening to the kind of music she doesn't like</p>
+                    <p id="p6">And she'll never know your story like I do</p>
+                </div>
+
+                
+                <!--Page 2-->
+                <div>
+                    <h3>
+                         [Pre-Chorus]
+                    </h3>
+                    <p id="p7">But she wears short skirts, I wear T-shirts</p>
+                    <p id="p8">She's Cheer Captain and I'm on the bleachers</p>
+                    <p id="p9">Dreaming about the day when you wake up and find</p>
+                    <p id="p10">That what you're looking for has been here the whole time</p>
+                    <br></br>
+                    <h3>
+                        [Chorus]
+                    </h3>
+                    <p id="p11">If you could see that im the one who understands you</p>
+                    <p id="p12">Been here all along, so why can't you see?</p>
+                    <p id="p13">You belong with me, you belong with me</p>
+                </div>
+
+                <!--Page 3-->
+                <div>
+                    <br></br>
+                   <h3>
+                       [Verse 2]
+                   </h3>
+                   <p id="p14">Walking the streets with you and your worn-out jeans</p>
+                   <p id="p15">I can't help thinking this is how it ought to be</p>
+                   <p id="p16">Laughing on a park bench, thinking to myself</p>
+                   <p id="p17">Hey, isn't this easy?</p>
+                   <p id="p18">And you've got a smile that could light up this whole town</p>
+                   <p id="p19">I haven't seen it in a while since she brought youb down</p>
+                   <p id="p20">You say you're fine, I know you better than that</p>
+                   <p id="p21">Hey, watcha doing with a girl like that?</p>
+                </div>
+                
+                <!--Page 4-->
+                <div>
+                    <h3>
+                        [Pre-Chorus]
+                    </h3>
+                    <p id="p22">But she wears short skirts, I wear T-shirts</p>
+                    <p id="p23">She's Cheer Captain and I'm on the bleachers</p>
+                    <p id="p24">Dreaming about the day when you wake up and find</p>
+                    <p id="p25">That what you're looking for has been here the whole time</p>
+                    <br></br>
+                    <h3>
+                        [Chorus]
+                    </h3>
+                    <p id="p26">If you could see that im the one who understands you</p>
+                    <p id="p27">Been here all along, so why can't you see?</p>
+                    <p id="p28">You belong with me, you belong with me</p>
+                </div>
+                
+                <!--Page 5-->
+                <div>
+                    <h3>
+                        [Bridge]
+                    </h3>
+                    <p id="p29">Oh, I remember you driving to my house</p>
+                    <p id="p30">In the middle of the night</p>
+                    <p id="p31">I'm the one who makes you laugh</p>
+                    <p id="p32">When you know you're 'bout to cry</p>
+                    <p id="p33">And I know your favorite songs</p>
+                    <p id="p34">And you tell me 'bout your dreams</p>
+                    <p id="p35">Think I where you belong</p>
+                    <p id="p36">Think I know it's with me</p>
+                    <h3>
+                        [Chorus]
+                    </h3>
+                    <p id="p37">If you could see that im the one who understands you</p>
+                    <p id="p38">Been here all along, so why can't you see?</p>
+                    <p id="p39">You belong with me, you belong with me</p>
+
+                </div>
+                <!--Page for Back Cover-->
+                <div> 
+                </div>
+                
+                <!--Back Cover-->
+                <div class="hard"></div>
+                <div class="hard"></div>
+            </div>
+
+            <!--End Book Code-->
+            <script type="text/javascript">
+                     $("#flipbook").turn({
+                width: 1200,
+                height: 700,
+                autoCenter: true
+            });
+            </script>
+       
+</body>
