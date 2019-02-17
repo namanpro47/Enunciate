@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="http://www.turnjs.com/lib/turn.min.js"> </script>
+     <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+     <script type="text/javascript" src="../../extras/jquery-ui-1.8.20.custom.min.js"></script>
+     <script type="text/javascript" src="../../extras/jquery.mousewheel.min.js"></script>
+     <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+     <script type="text/javascript" src="../../lib/hash.js"></script>    
+     <style>
+        
+        #flipbook{
+            width:1200px;
+            height:700px;
+        }
+        
+        #flipbook .page{
+            width:1200px;
+            height:700px;
+            background-color:rgb(255, 255, 255);
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+        }
+        
+        #flipbook .page-wrapper{
+            -webkit-perspective:2000px;
+            -moz-perspective:2000px;
+            -ms-perspective:2000px;
+            -o-perspective:2000px;
+            perspective:2000px;
+        }
+        
+        #flipbook .hard{
+            background:rgb(175, 141, 67) !important;
+            color:rgb(255, 255, 255);
+            line-height: 300px !important;
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            font-weight:bold;
+        }
+        
+        #flipbook .odd{
+            background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            -webkit-box-shadow:inset 0 0 30px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            
+        }
+        
+        #flipbook .even{
+            
+            background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+        }</style>
+</head>
+<body>   
+    
+    <!--Book Code-->
+    <div id="flipbook">
+                <!--Front Cover-->
+                <div class="hard"> Popular Science </div> 
+                <div class="hard"></div>
+                
+                <!--Page 1-->
+                <div>
+                    <h1 class="entry-title fn" itemprop="name">The Carolina Reaper Gets Everyone in the End</h1>
+                    <p id="p1" style="-ms-wrap-margin: 25px">Sometimes our bodies get confused. You know the feeling: You're just trying to compete in a pepper-eating
+                        contest and your poor stomach thinks you've maybe swallowed a whole fire. It's trying to save you, so you throw up
+                        and sweat and your vision goes blurry. Or, if you're the unnamed 34-year-old man in the latest issue of BMJ Case
+                        Reports, you get so-called thunderclap headaches and dry heaving.</p>
+                    <p id="p2" style="-ms-wrap-margin: 25px">The case study is possibly the first ever to link the oh-lord-is-my-head-going-to-explode kind of pain known
+                        as a thunderclap headache to eating a pepper. This man apparently ate a Carolina Reaper-the hottest chili in the
+                        world at 2.2 million Scoville units-then developed intense pain in his neck, at the back of his head, and behind
+                        the eyes. He also dry heaved. That's all probably to be expected when you enter a pepper-eating contest, but what's
+                        unexpected is for that pain to come on suddenly several times in the next few days. He experienced a bout of what
+                        doctors call thunderclap headaches; they come on suddenly, causing excruciating pain that peaks within a minute or
+                        so. They basically make you feel like you're dying, and sometimes they're an indicator that you are.</p>
+                </div>
+
+                
+                <!--Page 2-->
+                <div>
+                    <p id="p3" style="-ms-wrap-margin: 25px">His headaches were so agonizing that he went to the emergency room-and honestly, wouldn't we all? This is
+                        the kind of pain that actually could be a sign of a serious problem with your brain. The physicians writing in BMJ
+                        Case Reports note that they had to rule out an aneurysm before making the spicy diagnosis.</p>
+                    <p id="p4" style="margin-left: 25px">It turns out the pain likely came from intense constriction of the blood vessels in his brain, a condition
+                        called reversible cerebral vasoconstriction syndrome. Most people get RCVS from certain prescription meds, but they
+                        sometimes stem from illicit drug use (since many of them cause changes to the blood vessels), and the syndrome can
+                        occasionally occur during pregnancy. But no one had ever managed to reproduce the effect by participating in a
+                        pepper eating contest-until now.</p>
+                </div>
+
+                <!--Page 3-->
+                <div>
+                    <p id="p5" style="margin-left: 25px">This is not to say that it's totally wild for a chili pepper to cause such extreme symptoms. The compound
+                        called capsaicin in peppers-the substance that makes them taste hot-works by, well, convincing your body that it's
+                        hot. Capsaicin binds to receptors called TRPV1 on some of your sensory neurons. These are the same neurons that
+                        register physical heat; they'd prompt you to feel pain if you did something dumb like sticking your hand in a fire.
+                        Your body doesn't differentiate between stupidly putting your hand in a hot place and stupidly putting a
+                        deliriously hot pepper into your face-it's exactly the same sensation. This is why you sweat if you eat a lot of
+                        spicy food: your body thinks it's hot, so it starts trying to cool you down.</p>
+                    <p id="p6" style="margin-left: 25px">Capsaicin can also make you vomit or have diarrhea, depending on how far the pepper gets in your digestive
+                        tract. Your small intestine-which also has the sensors to pick up on capsaicin's presence-rightfully thinks that
+                        this bomb of spice is dangerous, and so it tries to move it along as quickly as possible. That sometimes involves
+                        painful cramps and increased mucosal production (i.e. diarrhea). Alas, the anus contains capsaicin receptors as
+                        well. A hot pepper is truly with you until the bitter end.</p>
+                </div>
+                
+                <!--Page 4-->
+                <div>
+                    <p id="p7" style="margin-left: 25px" style1="margin-right: 25px">Many other people have reported a wide range of deeply unpleasant symptoms following pepper consumption,
+                        none of which seem worth it just to say you've eaten a super-hot pepper. One writer for Bon Appetit ate three
+                        Carolina Reapers in 21.85 seconds and spent the next 14 hours in agony as his digestive system enacted its
+                        vengence. Another reporter, this time from a British newspaper, ate a burger with sauce hotter than pepper spray
+                        and promptly lost the feeling in his hands, had severe stomach pain, and started hyperventilating. Then he went to
+                        the hospital.</p>
+                    <p id="p8" style="margin-left: 25px" style1="margin-right: 25px">Eat Carolina Reapers at your own risk, people.</p>  
+                    <p id="p9" style="margin-left: 25px" style1="margin-right: 25px">It seems that the unfortunate man in the BMJ case study got lucky. The capsaicin somehow caused his blood
+                        vessels to spasm, which made his headaches crop up repeatedly over the course of a few days, but then they died
+                        down. The authors note that there was one other case study in which a 25-year-old male got vasospasms in his heart
+                        (prompting a heart attack) after taking cayenne pepper pills, so it seems capsaicin can indeed have aftershocks.
+                        The sudden changes our 34-year-old was experiencing in his blood vessels were causing the pain, but once the pepper
+                        had been fully flushed from his system he was fine.</p>
+                </div>
+                
+                <!--Page 5-->
+                <div>
+                    <p id="p10" style="margin-left: 25px" style1="margin-right: 25px">Despite this man's survival, our best advice should you ever be challenged to eat a Carolina Reaper is to
+                        not do it. Or do-who are we to judge your masochism? If you're into that kind of thing, at least have a jug of milk
+                        or carton of yogurt nearby. Dairy products contain casein, which is able to bind to those same TRPV1 receptors and
+                        thereby block some of the effects of capsaicin. Plus it can wash the spice away. Capsaicin isn't water-soluble, so
+                        rinsing your mouth and hands with water won't help. You need fats, like the ones in milk, to flush away the pain.
+                        Pair that pepper with a dollop of sour cream and you'll feel a lot better.</p>
+                    <p id="p11" style="margin-left: 25px" style1="margin-right: 25px">And you can at least rest assured that you're unlikely to die from eating a chili-you may just feel like
+                        you want to.</p>
+                </div>
+                <!--Page for Back Cover-->
+                <div> 
+                </div>
+                
+                <!--Back Cover-->
+                <div class="hard"></div>
+                <div class="hard"></div>
+            </div>
+
+            <!--End Book Code-->
+            <script type="text/javascript">
+                     $("#flipbook").turn({
+                width: 1200,
+                height: 700,
+                autoCenter: true
+            });
+            </script>
+       
+</body>

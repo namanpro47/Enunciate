@@ -11,13 +11,13 @@
      <style>
         
         #flipbook{
-            width:500px;
-            height:200px;
+            width:1200px;
+            height:700px;
         }
         
         #flipbook .page{
-            width:500px;
-            height:200px;
+            width:1200px;
+            height:700px;
             background-color:rgb(255, 255, 255);
             line-height:30px;
             font-size:20px;
@@ -33,7 +33,7 @@
         }
         
         #flipbook .hard{
-            background:rgb(37, 105, 168) !important;
+            background:rgb(175, 141, 67) !important;
             color:rgb(255, 255, 255);
             line-height: 300px !important;
             -webkit-box-shadow:inset 0 0 5px #666;
@@ -76,65 +76,67 @@
     
     <!--Book Code-->
     <div id="flipbook">
+                <!--Front Cover-->
                 <div class="hard"> The Itsy Bitsy Spider </div> 
                 <div class="hard"></div>
                 
-                <!--page 1-->
+                <!--Page 1-->
                 <div>
                     <img src="spider1.png" width="500" height="280" style="margin-top: 50px"></img>
                     <br></br>
-                    <p style="font-size:160%;">The itsy bitsy spider</p>
+                    <p id="p1" style="font-size:160%;">The itsy bitsy spider</p>
                 </div>
                 
-                <!--page 2-->
+                <!--Page 2-->
                 <div>
-                    <img src="spider2.png" width="590" height="295"></img>
+                    <img src="spider2.png" width="500" height="280" style="margin-top: 50px"></img>
                     <br></br>
-                    <p style="font-size:160%;">climbed up the water spout</p>
+                    <p id="p2" style="font-size:160%;">climbed up the water spout</p>
                 </div>
-                
-                <!--page 3-->
+
+                <!--Page 3-->
                 <div>
-                    <img src="spider3.png" width="595" height="290"></img>
+                        <img src="spider3.png" width="500" height="280" style="margin-top: 50px"></img>
+                        <br></br>
+                        <p id="p4" style="font-size:160%;">Down came the rain</p>
+                </div>
+
+                <!--Page 4-->
+                <div>
+                    <img src="spider4.png" width="500" height="280" style="margin-top: 50px"></img>
                     <br></br>
-                    <p style="font-size:160%;">Down came the rain</p>
+                    <p id="p5" style="font-size:160%;">and washed the spider out</p>
                 </div>
 
-                <!--page 4-->
-                <div>
-                    <img src="spider4.png" width="595" height="290"></img>
-                    <br></br>
-                    <p style="font-size:160%;">and washed the spider out</p>
-                </div>
-
-                <!--page 5-->
-                <div>
-                        <img src="spider5.png" width="595" height="290"></img>
+                 <!--Page 5-->
+                 <div>
+                        <img src="spider5.png" width="500" height="280" style="margin-top: 50px"></img>
                         <br></br>
-                        <p style="font-size:160%;">Out came the sun</p>
+                        <p id="p6" style="font-size:160%;">Out came the sun</p>
                 </div>
 
-                <!--page 6-->
-                <div>
-                        <img src="spider6.png" width="595" height="290"></img>
+                 <!--Page 6-->
+                 <div>
+                        <img src="spider6.png" width="500" height="280" style="margin-top: 50px"></img>
                         <br></br>
-                        <p style="font-size:160%;">and dried up all the rain</p>
+                        <p id="p7" style="font-size:160%;">and dried up all the rain</p>
                 </div>
 
-                <!--page 7-->
-                <div>
-                        <img src="spider7.png" width="595" height="290"></img>
+                 <!--Page 7-->
+                 <div>
+                        <img src="spider7.png" width="500" height="280" style="margin-top: 50px"></img>
                         <br></br>
-                        <p style="font-size:160%;">And the itsy bitsy</p>
+                        <p id="p8" style="font-size:160%;">And the itsy bitsy</p>
                 </div>
 
                 <!--page 8-->
                 <div>
-                        <img src="spider8.png" width="595" height="290"></img>
+                        <img src="spider8.png" width="500" height="280" style="margin-top: 50px"></img>
                         <br></br>
-                        <p style="font-size:160%;">climbed up the spout again</p>
+                        <p id="p9" style="font-size:160%;">climbed up the spout again</p>
                 </div>
-
+        
+                <!--Back Cover-->
                 <div class="hard"></div>
                 <div class="hard"></div>
             </div>
@@ -142,8 +144,8 @@
             <!--End Book Code-->
             <script type="text/javascript">
                      $("#flipbook").turn({
-                width: 500,
-                height: 200,
+                width: 1200,
+                height: 700,
                 autoCenter: true
             });
             </script>
