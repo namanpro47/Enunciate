@@ -45,15 +45,15 @@
 	 	}
         
         #flipbook{
-            width:1128px;
-            height:705px;
+            width:1200px;
+            height:700px;
         }
         
         #flipbook .page{
-            width:1128px;
-            height:705px;
+            width:1200px;
+            height:700px;
             background-color:white;
-            line-height:40px;
+            line-height:30px;
             font-size:20px;
             text-align:center;
         }
@@ -67,8 +67,9 @@
         }
         
         #flipbook .hard{
-            background:#ccc !important;
-            color:#333;
+            background:rgb(43, 70, 158) !important;
+            color:rgb(255, 255, 255);
+            line-height: 300px !important;
             -webkit-box-shadow:inset 0 0 5px #666;
             -moz-box-shadow:inset 0 0 5px #666;
             -o-box-shadow:inset 0 0 5px #666;
@@ -84,7 +85,7 @@
             background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
             background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
-            -webkit-box-shadow:inset 0 0 5px #666;
+            -webkit-box-shadow:inset 0 0 30px #666;
             -moz-box-shadow:inset 0 0 5px #666;
             -o-box-shadow:inset 0 0 5px #666;
             -ms-box-shadow:inset 0 0 5px #666;
@@ -205,31 +206,78 @@
 
 
                                     <!-- Book Code -->
-
                                     <div id="flipbook">
-                                            <div id="title" class="hard"> Wind On The Hill </div> 
-                                            <div id="insideCover" class="hard"></div>
-                                            <div><p id="p1">No one can tell me,</p><p id="p2">Nobody knows</p><p id="p3">Where the wind comes from,</p><p id="p4">Where the wind goes.</p></div>
-                                            <div><p id="p5">Hello World.</p></div>
-                                            <div class="hard" id ="backCover"></div>
+                                            <div class="hard"> The Itsy Bitsy Spider </div> 
+                                            <div class="hard"></div>
+                                            
+                                            <!--page 1-->
+                                            <div>
+                                                <img src="spider1.png" width="590" height="295"></img>
+                                                <br></br>
+                                                <p style="font-size:160%;">The itsy bitsy spider</p>
+                                            </div>
+                                            
+                                            <!--page 2-->
+                                            <div>
+                                                <img src="spider2.png" width="590" height="295"></img>
+                                                <br></br>
+                                                <p style="font-size:160%;">climbed up the water spout</p>
+                                            </div>
+                                            
+                                            <!--page 3-->
+                                            <div>
+                                                <img src="spider3.png" width="595" height="290"></img>
+                                                <br></br>
+                                                <p style="font-size:160%;">Down came the rain</p>
+                                            </div>
+                            
+                                            <!--page 4-->
+                                            <div>
+                                                <img src="spider4.png" width="595" height="290"></img>
+                                                <br></br>
+                                                <p style="font-size:160%;">and washed the spider out</p>
+                                            </div>
+                            
+                                            <!--page 5-->
+                                            <div>
+                                                    <img src="spider5.png" width="595" height="290"></img>
+                                                    <br></br>
+                                                    <p style="font-size:160%;">Out came the sun</p>
+                                            </div>
+                            
+                                            <!--page 6-->
+                                            <div>
+                                                    <img src="spider6.png" width="595" height="290"></img>
+                                                    <br></br>
+                                                    <p style="font-size:160%;">and dried up all the rain</p>
+                                            </div>
+                            
+                                            <!--page 7-->
+                                            <div>
+                                                    <img src="spider7.png" width="595" height="290"></img>
+                                                    <br></br>
+                                                    <p style="font-size:160%;">And the itsy bitsy</p>
+                                            </div>
+                            
+                                            <!--page 8-->
+                                            <div>
+                                                    <img src="spider8.png" width="595" height="290"></img>
+                                                    <br></br>
+                                                    <p style="font-size:160%;">climbed up the spout again</p>
+                                            </div>
+                            
+                                            <div class="hard"></div>
                                             <div class="hard"></div>
                                         </div>
-                                        <script type="text/javascript">
-                                                 $("#flipbook").turn({
-                                            width: 1128,
-                                            height: 705,
-                                            autoCenter: true
-                                        });
-
-                                         function goGrade() {
-                                                $("#flipbook").turn("page", 2);
-                                            }
-                                        goGrade();
-                                        </script>
-
                                     <!-- End Book Code -->
                                     
-
+                                    <script type="text/javascript">
+                                        $("#flipbook").turn({
+                                        width: 1200,
+                                        height: 700,
+                                        autoCenter: true
+                                    });
+                                    </script>
 
 
 
