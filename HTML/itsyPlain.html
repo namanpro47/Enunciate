@@ -53,7 +53,7 @@
             width:1128px;
             height:705px;
             background-color:white;
-            line-height:40px;
+            line-height:705px;
             font-size:20px;
             text-align:center;
         }
@@ -118,7 +118,9 @@
         <div class="breadcrumb-container">
             <div class="container">
                 <ul class="breadcrumb pull-left">
-                    <li><a href="category.html"><img src="logo_transparent.png" width="30%" height="30%"></a></li>
+                    <li><a href="home.html"><img src="logo_transparent.png"</a></li>
+                    <li><a href="category.html">Books</a></li>
+                    <li class="active">Teen Books</li>
                 </ul><!-- /.breadcrumb -->        
             </div><!-- /.container -->
         </div><!-- /.breadcrumb-container -->
@@ -192,26 +194,28 @@
                         <div class="book-additional-details">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs book-detail-tab">
-                                <li role="presentation"><a id="startRecognizeOnceAsyncButton">Start Reading <img src="mic.png" height="50" width="50"></a></li>
-                                <li role="presentation"><a id="stopRecognizeOnceAsyncButton">Get Results <img src="res.png" height="50" width="50"></a></li>
-                                <li role="presentation"><a href="category.html">More Books <img src="more.png" height="50" width="50"></a></li>
-                                <li role="presentation"><a href="https://github.com/namanpro47/Enunciate/">GitHub Project <img src="git.png" height="50" width="50"></a></li>
-                                <li role="presentation"><a href="http://namansingh.com/">About Us <img src="profile.png" height="50" width="50"></a></li>
+                                <li class="active" role="presentation"><a href="#more" data-toggle="tab">More About This Book</a></li>
+                                <li role="presentation"><a href="#product-details" data-toggle="tab">Product Details</a></li>
+                                <li role="presentation"><a href="#shipping" data-toggle="tab">Shipping</a></li>
+                                <li role="presentation"><a href="#first-chapter" data-toggle="tab">First Chapter</a></li>
                             </ul><!-- /.nav -->
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="more" role="tabpanel">
-
+                                    <h3>Microsoft Speech Recognition</h3>
+                                    <p>Book Goes Here.</p>
 
                                     <!-- Book Code -->
 
                                     <div id="flipbook">
-                                            <div id="title" class="hard"> Wind On The Hill </div> 
-                                            <div id="insideCover" class="hard"></div>
-                                            <div><p id="p1">No one can tell me,</p><p id="p2">Nobody knows</p><p id="p3">Where the wind comes from,</p><p id="p4">Where the wind goes.</p></div>
-                                            <div><p id="p5">Hello World.</p></div>
-                                            <div class="hard" id ="backCover"></div>
+                                            <div class="hard"> Turn.js </div> 
+                                            <div class="hard"></div>
+                                            <div><p id="p1">Itsy Bitsy Spider</p></div>
+                                            <div><p id="p2">went up the water spout.</p></div>
+                                            <div><p id="p3">Down came the rain</p></div>
+                                            <div><p id="p4">and washed the spider out.</p></div>
+                                            <div class="hard"></div>
                                             <div class="hard"></div>
                                         </div>
                                         <script type="text/javascript">
@@ -220,20 +224,50 @@
                                             height: 705,
                                             autoCenter: true
                                         });
-
-                                         function goGrade() {
-                                                $("#flipbook").turn("page", 2);
-                                            }
-                                        goGrade();
                                         </script>
 
                                     <!-- End Book Code -->
+
+
                                     
 
 
 
 
                                     <!-- UI code goes here -->
+
+                                    <div id="warning">
+									  <h1 style="font-weight:500;">Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+									</div>
+
+									<div id="content" style="display:none">
+									  <table width="100%">
+									    <tr>
+									      <td></td>
+									      <td><h1 style="font-weight:500;">Microsoft Cognitive Services Speech SDK JavaScript Quickstart</h1></td>
+									    </tr>
+									    <tr>
+									      <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+									      <td><input id="subscriptionKey" type="text" size="40" value="fd12ff1dd6c240c299e89dbb5136e690"></td>
+									    </tr>
+									    <tr>
+									      <td align="right">Region</td>
+									      <td><input id="serviceRegion" type="text" size="40" value="westus"></td>
+									    </tr>
+									    <tr>
+									      <td></td>
+									      <td><button id="startRecognizeOnceAsyncButton">Start recognition</button></td>
+									    </tr>
+									    <tr>
+									    	<td></td>
+									    	<td><button id="stopRecognizeOnceAsyncButton">Stop recognition</button></td>
+									    </tr>
+									    <tr>
+									      <td align="right" valign="top">Results</td>
+									      <td><textarea id="phraseDiv" style="display: inline-block;width:500px;height:200px"></textarea></td>
+									    </tr>
+									  </table>
+									</div>
 
 
 
@@ -267,6 +301,7 @@
 
 
 									  // status fields and start button in UI
+									  var phraseDiv;
 									  var startRecognizeOnceAsyncButton;
 									  var stopRecognizeOnceAsyncButton;
 
@@ -279,13 +314,13 @@
 									  var endResult;
 									  var count = 0;
 
-
 									  document.addEventListener("DOMContentLoaded", function () {
 									    startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
 									    stopRecognizeOnceAsyncButton = document.getElementById("stopRecognizeOnceAsyncButton");
 									    stopRecognizeOnceAsyncButton.disabled = true;
 									    subscriptionKey = "fd12ff1dd6c240c299e89dbb5136e690";
 									    serviceRegion = "westus";
+									    phraseDiv = document.getElementById("phraseDiv");
 
 
 									    // if we got an authorization token, use the token. Otherwise use the provided subscription key
@@ -305,6 +340,7 @@
 									    startRecognizeOnceAsyncButton.addEventListener("click", function () {
 									      startRecognizeOnceAsyncButton.disabled = true;
 									      stopRecognizeOnceAsyncButton.disabled = false;
+									      phraseDiv.innerHTML = "";
 									      lastRecognized = "";
 									      endResult = "";
 
@@ -317,12 +353,8 @@
 						                };
 									      recognizer.recognizing = function (s, e) {
 									      	lastRecognized = e.result.text;
-                                            /*if(lastRecognized.includes("skip") && lastRecognized.includes("phrase"))
-                                            {
-                                                count++;
-                                            }*/
 									      	var recWords = lastRecognized.split(" ");
-									      	console.log(lastRecognized);
+									      	console.log(recWords);
 									      	var inside = "";
 									      	var allTrue = true;
 						                    console.log(recWords);
@@ -349,76 +381,26 @@
 									      				allTrue = false;
 									      			}
 									      		}
-									      		//console.log("OFFICIAL: " + inside);
+									      		console.log("OFFICIAL: " + inside);
 									      		document.getElementById("p" + (count + 1)).innerHTML = inside;
 									      		if(allTrue)
 									      		{
 									      			count++;
-                                                    if(count >= sentences.length)
-                                                    {
-                                                        stopRecognizeOnceAsyncButton.click();
-                                                    }
 									      		}
-                                                else
-                                                {
-                                                    document.getElementById("p" + (count + 1)).innerHTML += "<btn id=\"skip\"><img src=\"skip.png\" width=\"60px\" height=\"40px\"></img></btn>";
-                                                    console.log(document.getElementById("skip"));
-                                                    document.getElementById("skip").onclick = skipLine;
-                                                    function skipLine() {
-                                                        document.getElementById("p" + (count + 1)).innerHTML = inside;
-                                                      count++;
-                                                      if(count >= sentences.length)
-                                                        {
-                                                        stopRecognizeOnceAsyncButton.click();
-                                                        }
-                                                      console.log("***A LINE HAS BEEN SKIPPED ***");
-                                                    }
-                                                }
 									      	}
-						                    else{
-                                                stopRecognizeOnceAsyncButton.click();
-                                            }
+						                    
 						                };
 									    });
 
 									    //Stop Button Triggered
 									    stopRecognizeOnceAsyncButton.addEventListener("click", function () {
 									      window.console.log("STOP RECOGNITION");
-                                          var output = "<h2>Here are the words you missed:</h2>";
-                                          var total = 1;
-                                          var wrongs = 0;
-                                          for(var i = 0; i < sentences.length; i++)
-                                          {
-                                            for(var j = 0; j < sentences[0].length; j++)
-                                            {
-                                                if(sentences[i][j] != undefined)
-                                                {
-                                                    total++;
-                                                    if(!bools[i][j])
-                                                    {
-                                                        wrongs++;
-                                                        sentences[i][j] = sentences[i][j].replace(',','');
-                                                        sentences[i][j] = sentences[i][j].replace('.','');
-                                                        output+="<h3>" + sentences[i][j] + "</h3>";
-                                                    }
-                                                }
-                                            }
-                                          }
-                                          console.log(output);
-                                          console.log(parseInt(((total - wrongs)/total) * 100));
-                                          
-                                          /*if(count < sentences.length)
-                                          {
-                                            alert("You need to finish reading before you can get results!");
-                                          }*/
 									      startRecognizeOnceAsyncButton.disabled = false;
 						                  stopRecognizeOnceAsyncButton.disabled = true;
 						                  recognizer.stopContinuousRecognitionAsync();
 						                  window.console.log(endResult);
 						                  window.console.log(lastRecognized);
-                                          document.getElementById('title').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>";
-                                          document.getElementById('insideCover').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
-                                          document.getElementById('backCover').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
+						                  phraseDiv.innerHTML = endResult + lastRecognized + ".";
 									    });
 
 
@@ -426,6 +408,8 @@
 									      SpeechSDK = window.SpeechSDK;
 									      startRecognizeOnceAsyncButton.disabled = false;
 
+									      document.getElementById('content').style.display = 'block';
+									      document.getElementById('warning').style.display = 'none';
 
 									      // in case we have a function for getting an authorization token, call it.
 									      if (typeof RequestAuthorizationToken === "function") {
