@@ -204,73 +204,64 @@
                                 <div class="tab-pane active" id="more" role="tabpanel">
 
 
-                                    <!-- Book Code -->
+                                    <!--Book Code-->
                                     <div id="flipbook">
-                                    <!--Front Cover-->
-                                    <div class="hard" id=""> The Itsy Bitsy Spider </div> 
-                                    <div class="hard"></div>
-                                    
-                                    <!--Page 1-->
-                                    <div>
-                                        <img src="spider1.png" width="500" height="280" style="margin-top: 50px"></img>
-                                        <br></br>
-                                        <p id="p1" style="font-size:160%;">The itsy bitsy spider</p>
-                                    </div>
-                                    
-                                    <!--Page 2-->
-                                    <div>
-                                        <img src="spider2.png" width="500" height="280" style="margin-top: 50px"></img>
-                                        <br></br>
-                                        <p id="p2" style="font-size:160%;">climbed up the water spout</p>
-                                    </div>
+                                                <!--Front Cover-->
+                                                <div class="hard"> Wind on the Hill </div> 
+                                                <div class="hard"></div>
+                                                
+                                                <!--Page 1-->
+                                                <div>
+                                                    <h1 class="entry-title fn" itemprop="name">Wind On The Hill</h1>
+                                                    <h2 class="author">                     
+                                                            By <span itemprop="author">A. A. Milne</span>                                       
+                                                    </h2>
+                                                    <p id="p1">No one can tell me,</p>
+                                                    <p id="p2">Nobody knows,</p>
+                                                    <p id="p3">Where the wind comes from,</p>
+                                                    <p id="p4">Where the wind goes.</p>
+                                                    <img src="book2img1.jpg" width="400" height="275"></img>
+                                                </div>
+                                                
+                                                <!--Page 2-->
+                                                <div>
+                                                    <br></br>
+                                                    <p id="p5">It's flying from somewhere</p>
+                                                    <p id="p6">As fast as it can</p>
+                                                    <p id="p7">I couldn't keep up with it,</p>
+                                                    <p id="p8">Not if I ran</p>
+                                                    <br></br>
+                                                    <p id="p9">But if I stopped holding</p>
+                                                    <p id="p10">The string of my kite,</p>
+                                                    <p id="p11">It would blow with the wind</p>
+                                                    <p id="p12">For a day and night.</p>
+                                                </div>
 
-                                    <!--Page 3-->
-                                    <div>
-                                            <img src="spider3.png" width="500" height="280" style="margin-top: 50px"></img>
-                                            <br></br>
-                                            <p id="p3" style="font-size:160%;">Down came the rain</p>
-                                    </div>
+                                                <!--Page 3-->
+                                                <div>
+                                                    <br></br>
+                                                    <p id="p13">And then when I found it,</p>
+                                                    <p id="p14">Wherever it blew,</p>
+                                                    <p id="p15">I should know that the wind</p>
+                                                    <p id="p16">Had been going there too.</p>
+                                                    <br></br>
+                                                    <p id="p17">So then I could tell them</p>
+                                                    <p id="p18">Where the wind goes...</p>
+                                                    <p id="p19">But where the wind comes from</p>
+                                                    <p id="p20">Nobody knows.</p>
+                                                </div>
+                                                
+                                                <!--Page for Back Cover-->
+                                                <div> 
+                                                </div>
+                                                
+                                                <!--Back Cover-->
+                                                <div class="hard"></div>
+                                                <div class="hard"></div>
+                                            </div>
 
-                                    <!--Page 4-->
-                                    <div>
-                                        <img src="spider4.png" width="500" height="280" style="margin-top: 50px"></img>
-                                        <br></br>
-                                        <p id="p4" style="font-size:160%;">and washed the spider out</p>
-                                    </div>
-
-                                     <!--Page 5-->
-                                     <div>
-                                            <img src="spider5.png" width="500" height="280" style="margin-top: 50px"></img>
-                                            <br></br>
-                                            <p id="p5" style="font-size:160%;">Out came the sun</p>
-                                    </div>
-
-                                     <!--Page 6-->
-                                     <div>
-                                            <img src="spider6.png" width="500" height="280" style="margin-top: 50px"></img>
-                                            <br></br>
-                                            <p id="p6" style="font-size:160%;">and dried up all the rain</p>
-                                    </div>
-
-                                     <!--Page 7-->
-                                     <div>
-                                            <img src="spider7.png" width="500" height="280" style="margin-top: 50px"></img>
-                                            <br></br>
-                                            <p id="p7" style="font-size:160%;">And the itsy bitsy</p>
-                                    </div>
-
-                                    <!--page 8-->
-                                    <div>
-                                            <img src="spider8.png" width="500" height="280" style="margin-top: 50px"></img>
-                                            <br></br>
-                                            <p id="p8" style="font-size:160%;">climbed up the spout again</p>
-                                    </div>
-                            
-                                    <!--Back Cover-->
-                                    <div class="hard"></div>
-                                    <div class="hard"></div>
-                                </div>
-                                    <!-- End Book Code -->
+                                            <!--End Book Code-->
+                                            <div id="back"></div>
                                     
                                     <script type="text/javascript">
                                         $("#flipbook").turn({
@@ -296,19 +287,38 @@
 
 									  // Get Book Sentences
 									  var contents = document.getElementById("flipbook").querySelectorAll("p");
-									  console.log(contents);
-									  var sentences = new Array(contents.length);
-									  var bools = new Array(contents.length);
-									  for(var i = 0; i < contents.length; i++)
-									  {
-									  	sentences[i] = contents[i].textContent.split(" ");
-									  	bools[i] = new Array(sentences[i].length);
-									  	for(var j = 0; j < bools[i].length; j++)
-									  	{
-									  		bools[i][j] = false;
-									  	}
-									  	console.log(sentences[i]);
-									  }
+                                      console.log(contents);
+                                      var sentences = new Array(8);
+                                      sentences[0] = "No one can tell me,".split(" ");
+                                      sentences[1] = "Nobody knows,".split(" ");
+                                      sentences[2] = "Where the wind comes from,".split(" ");
+                                      sentences[3] = "Where the wind goes.".split(" ");
+                                      sentences[4] = "It's flying from somewhere,".split(" ");
+                                      sentences[5] = "As fast as it can,".split(" ");
+                                      sentences[6] = "I couldn't keep up with it,".split(" ");
+                                      sentences[7] = "Not if I ran".split(" ");
+                                      sentences[8] = "But if I stopped holding,".split(" ");
+                                      sentences[9] = "The string of my kite,".split(" ");
+                                      sentences[10] = "It would blow with the wind,".split(" ");
+                                      sentences[11] = "For a day and a night".split(" ");
+                                      sentences[12] = "And then when I found it".split(" ");
+                                      sentences[13] = "Wherever it blew,".split(" ");
+                                      sentences[14] = "I should know that the wind,".split(" ");
+                                      sentences[15] = "Had been going there too.".split(" ");
+                                      sentences[16] = "So then I could tell them,".split(" ");
+                                      sentences[17] = "Where the wind goes.".split(" ");
+                                      sentences[18] = "But where the wind comes from,".split(" ");
+                                      sentences[19] = "Nobody knows.".split(" ");
+                                      var bools = new Array(20);
+                                      for(var i = 0; i < 20; i++)
+                                      {
+                                        bools[i] = new Array(sentences[i].length);
+                                        for(var j = 0; j < bools[i].length; j++)
+                                        {
+                                            bools[i][j] = false;
+                                        }
+                                        console.log(sentences[i]);
+                                      }
 
 
 
@@ -431,8 +441,8 @@
 									    });
 
 									    //Stop Button Triggered
-									    stopRecognizeOnceAsyncButton.addEventListener("click", function () {
-									      window.console.log("STOP RECOGNITION");
+                                        stopRecognizeOnceAsyncButton.addEventListener("click", function () {
+                                          window.console.log("STOP RECOGNITION");
                                           var output = "<h2>Here are the words you missed:</h2>";
                                           var total = 1;
                                           var wrongs = 0;
@@ -448,10 +458,14 @@
                                                         wrongs++;
                                                         sentences[i][j] = sentences[i][j].replace(',','');
                                                         sentences[i][j] = sentences[i][j].replace('.','');
-                                                        output+="<h3>" + sentences[i][j] + "</h3>";
+                                                        output+="<h3>\u2022" + sentences[i][j] + "</h3>";
                                                     }
                                                 }
                                             }
+                                          }
+                                          if(wrong == 0)
+                                          {
+                                            output+="<h3>Nothing! Congrats, you didn't miss a single word!</h3>"
                                           }
                                           console.log(output);
                                           console.log(parseInt(((total - wrongs)/total) * 100));
@@ -460,15 +474,13 @@
                                           {
                                             alert("You need to finish reading before you can get results!");
                                           }*/
-									      startRecognizeOnceAsyncButton.disabled = false;
-						                  stopRecognizeOnceAsyncButton.disabled = true;
-						                  recognizer.stopContinuousRecognitionAsync();
-						                  window.console.log(endResult);
-						                  window.console.log(lastRecognized);
-                                          document.getElementById('title').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>";
-                                          document.getElementById('insideCover').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
-                                          document.getElementById('backCover').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
-									    });
+                                          startRecognizeOnceAsyncButton.disabled = false;
+                                          stopRecognizeOnceAsyncButton.disabled = true;
+                                          recognizer.stopContinuousRecognitionAsync();
+                                          window.console.log(endResult);
+                                          window.console.log(lastRecognized);
+                                          document.getElementById('back').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
+                                        });
 
 
 									    if (!!window.SpeechSDK) {

@@ -143,7 +143,7 @@
                                     <i class="fa fa-star color"></i>
                                     <i class="fa fa-star color"></i>
                                     <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star color"></i>
                                 </div><!-- /.star-rating -->    
                             </div><!-- /.book-detail-header -->
 
@@ -478,6 +478,10 @@
                                                     }
                                                 }
                                             }
+                                          }
+                                          if(wrong == 0)
+                                          {
+                                            output+="<h3>Nothing! Congrats, you didn't miss a single word!</h3>"
                                           }
                                           console.log(output);
                                           console.log(parseInt(((total - wrongs)/total) * 100));
