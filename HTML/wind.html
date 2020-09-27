@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title>Enunciate.io</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Customizable CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/green.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,500,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="assets/css/elegant-fonts.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="http://www.turnjs.com/lib/turn.min.js"> </script>
+
+    <style>
+
+		.correct {
+	  	  color: #00e500;
+	  	}
+	 	.incorrect { /* OK, a bit contrived... */
+	 	  color: #ff0000;
+	 	}
+        
+        #flipbook{
+            width:1200px;
+            height:700px;
+        }
+        
+        #flipbook .page{
+            width:1200px;
+            height:700px;
+            background-color:rgb(255, 255, 255);
+            line-height:30px;
+            font-size:20px;
+            text-align:center;
+        }
+        
+        #flipbook .page-wrapper{
+            -webkit-perspective:2000px;
+            -moz-perspective:2000px;
+            -ms-perspective:2000px;
+            -o-perspective:2000px;
+            perspective:2000px;
+        }
+        
+        #flipbook .hard{
+            background:rgb(175, 141, 67) !important;
+            color:rgb(255, 255, 255);
+            line-height: 300px !important;
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            font-weight:bold;
+        }
+        
+        #flipbook .odd{
+            background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:-o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            background-image:linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+            -webkit-box-shadow:inset 0 0 30px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+            
+        }
+        
+        #flipbook .even{
+            
+            background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+            background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+            -webkit-box-shadow:inset 0 0 5px #666;
+            -moz-box-shadow:inset 0 0 5px #666;
+            -o-box-shadow:inset 0 0 5px #666;
+            -ms-box-shadow:inset 0 0 5px #666;
+            box-shadow:inset 0 0 5px #666;
+        }</style>
+    <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
+<!--[if lt IE 9]>
+<script src="assets/js/html5shiv.js"></script>
+<script src="assets/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body style="background: #eaf2ff">
+
+    <div class="wrapper">
+    <div class="content">
+        <div class="breadcrumb-container">
+            <div class="container">
+                <ul class="breadcrumb pull-left">
+                    <li><a href="store.html"><img src="logo_transparent.png" width="30%" height="30%"></a></li>
+                </ul><!-- /.breadcrumb -->        
+            </div><!-- /.container -->
+        </div><!-- /.breadcrumb-container -->
+
+        <div class="book-detail page">
+            <div class="container">
+                <div class="primary-block clearfix">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="book-cover book detail-book-cover">
+                                <img src="wind.jpg" class="img-responsive" alt="">
+                                <div class="fade"></div>
+                            </div><!-- /.book-cover -->
+                        </div><!-- /.col -->
+
+                        <div class="col-sm-8">
+                            <div class="book-detail-header">
+                                <h2 class="book-title">Wind on the Hill</h2>
+                                <p class="book-author">By <span class="book-author-name">E.M.Brent-dyer</span></p>
+                                <div class="star-rating">
+                                    <i class="fa fa-star color"></i>
+                                    <i class="fa fa-star color"></i>
+                                    <i class="fa fa-star color"></i>
+                                    <i class="fa fa-star color"></i>
+                                    <i class="fa fa-star"></i>
+                                </div><!-- /.star-rating -->    
+                            </div><!-- /.book-detail-header -->
+
+                            <div class="book-detail-body">
+
+                                <div class="detail-cart-button row clearfix">
+                                    <div class="pull-left col-md-6 col-sm-5 col-xs-12">
+                                        <div class="detail-book-price">
+                                            <span class="price">FREE</span>
+                                        </div><!-- /.detail-book-price -->
+                                    </div><!-- /.pull-left -->
+
+                                    <div class="pull-right col-md-6 col-sm-7 col-xs-12">
+                                        <div class="row product-actions">
+
+                                            <a href="checkout.html" class="col-sm-6 btn btn-primary btn-addToCart"><i class="icon-plus fa fa-plus-circle"></i>Add to Cart</a>
+                                            <div class="quantity book-detail-quantity col-xs-4 col-lg-3">  
+                                                <div class="quantity-block">          
+                                                    <div class="quant-input">
+                                                        <div class="arrows">
+                                                            <div class="arrow plus gradient"><span class="ir"></span></div>
+                                                            <div class="arrow minus gradient"><span class="ir"></span></div>
+                                                        </div><!-- /.arrows -->
+                                                        <input class="txt-quantity" type="text" value="1"/>
+                                                    </div><!-- /.quant-input -->  
+                                                </div><!-- /.quantity-block -->                             
+                                            </div><!-- /.col -->   
+                                            <button title="favourite" class="hidden-xs btn btn-secondary btn-add-to-wishlist col-xs-2 " type="button"><span class="icon glyphicon glyphicon-heart"></span></button>
+
+                                        </div><!-- /.row -->
+                                    </div><!-- /.pull-right -->
+                                </div><!-- /.detail-cart-button -->
+
+                                <div class="clearfix"></div>
+
+                                <div class="product-description">
+                                    <h3>Instructions</h3>
+                                    <p>Press <b>Start Reading</b> and click <b>Allow</b> when asked for microphone permissions.</p><p> Read through the book out loud to your device. Words pronounced correctly will turn <span style="color:green">green</span>, and words not recognized yet will be <span class="incorrect">red</span>. If you are struggling with any words in a sentence you can either repeat the missed words or move on to the next sentence by hitting the <b style="color:red">Skip</b> arrow.</p><p>When you're done reading you can press <b>Get Results</b> and scroll down to see your accuracy rating!
+                                </div><!-- /.product-description -->
+
+                            </div><!-- /.book-detail-body -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+                    <div class="tab-holder clearfix">
+                        <div class="book-additional-details">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs book-detail-tab">
+                                <li role="presentation"><a id="startRecognizeOnceAsyncButton">Start Reading <img src="mic.png" height="50" width="50"></a></li>
+                                <li role="presentation"><a id="stopRecognizeOnceAsyncButton">Get Results <img src="res.png" height="50" width="50"></a></li>
+                                <li role="presentation"><a href="store.html">More Books <img src="more.png" height="50" width="50"></a></li>
+                                <li role="presentation"><a href="https://github.com/namanpro47/Enunciate/">GitHub Project <img src="git.png" height="50" width="50"></a></li>
+                                <li role="presentation"><a href="http://namansingh.com/">About Us <img src="profile.png" height="50" width="50"></a></li>
+                            </ul><!-- /.nav -->
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="more" role="tabpanel">
+
+
+                                    <!--Book Code-->
+                                    <div id="flipbook">
+                                                <!--Front Cover-->
+                                                <div class="hard"><img src="wind.jpg" width="600" height="700"></img></div> 
+                                                <div class="hard"></div>
+                                                
+                                                <!--Page 1-->
+                                                <div>
+                                                    <h1 class="entry-title fn" itemprop="name">Wind On The Hill</h1>
+                                                    <h2 class="author">                     
+                                                            By <span itemprop="author">A. A. Milne</span>                                       
+                                                    </h2>
+                                                    <p id="p1">No one can tell me,</p>
+                                                    <p id="p2">Nobody knows,</p>
+                                                    <p id="p3">Where the wind comes from,</p>
+                                                    <p id="p4">Where the wind goes.</p>
+                                                    <img src="book2img1.jpg" width="400" height="275"></img>
+                                                </div>
+                                                
+                                                <!--Page 2-->
+                                                <div>
+                                                    <br></br>
+                                                    <p id="p5">It's flying from somewhere,</p>
+                                                    <p id="p6">As fast as it can,</p>
+                                                    <p id="p7">I couldn't keep up with it,</p>
+                                                    <p id="p8">Not if I ran.</p>
+                                                    <br></br>
+                                                    <p id="p9">But if I stopped holding,</p>
+                                                    <p id="p10">The string of my kite,</p>
+                                                    <p id="p11">It would blow with the wind,</p>
+                                                    <p id="p12">For a day and a night.</p>
+                                                </div>
+
+                                                <!--Page 3-->
+                                                <div>
+                                                    <br></br>
+                                                    <p id="p13">And then when I found it,</p>
+                                                    <p id="p14">Wherever it blew,</p>
+                                                    <p id="p15">I should know that the wind,</p>
+                                                    <p id="p16">Had been going there too.</p>
+                                                    <br></br>
+                                                    <p id="p17">So then I could tell them,</p>
+                                                    <p id="p18">Where the wind goes.</p>
+                                                    <p id="p19">But where the wind comes from,</p>
+                                                    <p id="p20">Nobody knows.</p>
+                                                </div>
+                                                
+                                                <!--Page for Back Cover-->
+                                                <div> 
+                                                </div>
+                                                
+                                                <!--Back Cover-->
+                                                <div class="hard"></div>
+                                                <div class="hard"></div>
+                                            </div>
+
+                                            <!--End Book Code-->
+                                            <div id="back"></div>
+                                    
+                                    <script type="text/javascript">
+                                        $("#flipbook").turn({
+                                        width: 1200,
+                                        height: 700,
+                                        autoCenter: true
+                                    });
+                                    </script>
+
+
+
+                                    <!-- UI code goes here -->
+
+
+
+ 									<!-- SDK reference goes here -->
+ 									<!-- Speech SDK reference sdk. -->
+									<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+									<!-- Speech SDK USAGE -->
+									<script>
+
+
+
+									  // Get Book Sentences
+									  var contents = document.getElementById("flipbook").querySelectorAll("p");
+                                      console.log(contents);
+                                      var sentences = new Array(8);
+                                      sentences[0] = "No one can tell me,".split(" ");
+                                      sentences[1] = "Nobody knows,".split(" ");
+                                      sentences[2] = "Where the wind comes from,".split(" ");
+                                      sentences[3] = "Where the wind goes.".split(" ");
+                                      sentences[4] = "It's flying from somewhere,".split(" ");
+                                      sentences[5] = "As fast as it can,".split(" ");
+                                      sentences[6] = "I couldn't keep up with it,".split(" ");
+                                      sentences[7] = "Not if I ran".split(" ");
+                                      sentences[8] = "But if I stopped holding,".split(" ");
+                                      sentences[9] = "The string of my kite,".split(" ");
+                                      sentences[10] = "It would blow with the wind,".split(" ");
+                                      sentences[11] = "For a day and a night".split(" ");
+                                      sentences[12] = "And then when I found it".split(" ");
+                                      sentences[13] = "Wherever it blew,".split(" ");
+                                      sentences[14] = "I should know that the wind,".split(" ");
+                                      sentences[15] = "Had been going there too.".split(" ");
+                                      sentences[16] = "So then I could tell them,".split(" ");
+                                      sentences[17] = "Where the wind goes.".split(" ");
+                                      sentences[18] = "But where the wind comes from,".split(" ");
+                                      sentences[19] = "Nobody knows.".split(" ");
+                                      var bools = new Array(20);
+                                      for(var i = 0; i < 20; i++)
+                                      {
+                                        bools[i] = new Array(sentences[i].length);
+                                        for(var j = 0; j < bools[i].length; j++)
+                                        {
+                                            bools[i][j] = false;
+                                        }
+                                        console.log(sentences[i]);
+                                      }
+
+
+
+
+
+
+									  // status fields and start button in UI
+									  var startRecognizeOnceAsyncButton;
+									  var stopRecognizeOnceAsyncButton;
+
+									  // subscription key and region for speech services.
+									  var subscriptionKey, serviceRegion;
+									  var authorizationToken;
+									  var SpeechSDK;
+									  var recognizer;
+									  var lastRecognized;
+									  var endResult;
+									  var count = 0;
+
+
+									  document.addEventListener("DOMContentLoaded", function () {
+									    startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+									    stopRecognizeOnceAsyncButton = document.getElementById("stopRecognizeOnceAsyncButton");
+									    stopRecognizeOnceAsyncButton.disabled = true;
+									    subscriptionKey = "fd12ff1dd6c240c299e89dbb5136e690";
+									    serviceRegion = "westus";
+
+
+									    // if we got an authorization token, use the token. Otherwise use the provided subscription key
+									      var speechConfig;
+									        if (subscriptionKey === "" || subscriptionKey === "subscription") {
+									          alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+									          return;
+									        }
+									       speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
+
+									      speechConfig.speechRecognitionLanguage = "en-US";
+									      var audioConfig  = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+									      recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+
+
+									    //Start Button Triggered
+									    startRecognizeOnceAsyncButton.addEventListener("click", function () {
+									      startRecognizeOnceAsyncButton.disabled = true;
+									      stopRecognizeOnceAsyncButton.disabled = false;
+									      lastRecognized = "";
+									      endResult = "";
+
+
+									      recognizer.startContinuousRecognitionAsync();
+									      recognizer.recognized = function (s, e) {
+						                    endResult += e.result.text + " ";
+						                    //console.log("**FINAL PENDING**: " + endResult);
+
+						                };
+									      recognizer.recognizing = function (s, e) {
+									      	lastRecognized = e.result.text;
+                                            /*if(lastRecognized.includes("skip") && lastRecognized.includes("phrase"))
+                                            {
+                                                count++;
+                                            }*/
+									      	var recWords = lastRecognized.split(" ");
+									      	console.log(lastRecognized);
+									      	var inside = "";
+									      	var allTrue = true;
+						                    console.log(recWords);
+									      	if(count < sentences.length)
+									      	{
+									      		for(var i = 0; i < sentences[count].length; i++)
+									      		{
+									      			for(var j = 0; j < recWords.length; j++)
+									      			{
+									      				//console.log("im comparing: " + recWords[j] + " with: " + sentences[count][i])
+									      				if(recWords[j].toUpperCase() == sentences[count][i].toUpperCase() || recWords[j].toUpperCase() + "." == (sentences[count][i].toUpperCase()) || (recWords[j].toUpperCase() + "," == sentences[count][i].toUpperCase()))
+									      				{
+									      					bools[count][i] = true;
+									      				}
+									      			}
+									      			if(bools[count][i])
+									      			{
+									      				inside += "<span class=\"correct\">" + sentences[count][i] + "</span>" + " ";
+									      				console.log("CORRECT: ")
+									      			}
+									      			else
+									      			{
+									      				inside += "<span class=\"incorrect\">" + sentences[count][i] + "</span>" + " ";
+									      				allTrue = false;
+									      			}
+									      		}
+									      		//console.log("OFFICIAL: " + inside);
+									      		document.getElementById("p" + (count + 1)).innerHTML = inside;
+									      		if(allTrue)
+									      		{
+									      			count++;
+                                                    if(count >= sentences.length)
+                                                    {
+                                                        stopRecognizeOnceAsyncButton.click();
+                                                    }
+									      		}
+                                                else
+                                                {
+                                                    document.getElementById("p" + (count + 1)).innerHTML += "<btn id=\"skip\"><img src=\"skip.png\" width=\"60px\" height=\"40px\"></img></btn>";
+                                                    console.log(document.getElementById("skip"));
+                                                    document.getElementById("skip").onclick = skipLine;
+                                                    function skipLine() {
+                                                        document.getElementById("p" + (count + 1)).innerHTML = inside;
+                                                      count++;
+                                                      if(count >= sentences.length)
+                                                        {
+                                                        stopRecognizeOnceAsyncButton.click();
+                                                        }
+                                                      console.log("***A LINE HAS BEEN SKIPPED ***");
+                                                    }
+                                                }
+									      	}
+						                    else{
+                                                stopRecognizeOnceAsyncButton.click();
+                                            }
+						                };
+									    });
+
+									    //Stop Button Triggered
+                                        stopRecognizeOnceAsyncButton.addEventListener("click", function () {
+                                          window.console.log("STOP RECOGNITION");
+                                          var output = "<h2>Here are the words you missed:</h2>";
+                                          var total = 1;
+                                          var wrongs = 0;
+                                          for(var i = 0; i < sentences.length; i++)
+                                          {
+                                            for(var j = 0; j < sentences[0].length; j++)
+                                            {
+                                                if(sentences[i][j] != undefined)
+                                                {
+                                                    total++;
+                                                    if(!bools[i][j])
+                                                    {
+                                                        wrongs++;
+                                                        sentences[i][j] = sentences[i][j].replace(',','');
+                                                        sentences[i][j] = sentences[i][j].replace('.','');
+                                                        output+="<h3>\u2022" + sentences[i][j] + "</h3>";
+                                                    }
+                                                }
+                                            }
+                                          }
+                                          if(wrong == 0)
+                                          {
+                                            output+="<h3>Nothing! Congrats, you didn't miss a single word!</h3>"
+                                          }
+                                          console.log(output);
+                                          console.log(parseInt(((total - wrongs)/total) * 100));
+                                          
+                                          /*if(count < sentences.length)
+                                          {
+                                            alert("You need to finish reading before you can get results!");
+                                          }*/
+                                          startRecognizeOnceAsyncButton.disabled = false;
+                                          stopRecognizeOnceAsyncButton.disabled = true;
+                                          recognizer.stopContinuousRecognitionAsync();
+                                          window.console.log(endResult);
+                                          window.console.log(lastRecognized);
+                                          document.getElementById('back').innerHTML += "<h1></h1><img src=\"graded.png\" width=\"200px\" height=\"200px\"></img>" + "<h1><b>" + parseInt(((total - wrongs)/total) * 100) + "%</b></h1>" + output;
+                                        });
+
+
+									    if (!!window.SpeechSDK) {
+									      SpeechSDK = window.SpeechSDK;
+									      startRecognizeOnceAsyncButton.disabled = false;
+
+
+									      // in case we have a function for getting an authorization token, call it.
+									      if (typeof RequestAuthorizationToken === "function") {
+									          RequestAuthorizationToken();
+									      }
+									    }
+									  });
+									</script>
+ 									<!-- Optional authorization token request goes here -->
+
+ 									<!-- Sample code goes here -->
+                                </div><!-- /.tab-pane -->
+
+                                <div class="tab-pane" id="product-details" role="tabpanel">
+                                    <ul class="list-unstyled list-kybook uppercase">
+                                        <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                                        <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                                        <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                                        <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-pane" id="shipping" role="tabpanel">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p> 
+                                </div><!-- /.tab-pane -->
+
+                                <div class="tab-pane" id="first-chapter" role="tabpanel">
+                                    <h3>Consectetur adipisicing elit, sed do eiusmod</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis.</p>
+                                    <p>Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>
+                                </div><!-- /.tab-pane -->
+
+                            </div><!-- /.tab-content -->
+                        </div><!-- /.book-additional-details -->
+                    </div><!-- /.col -->
+                </div><!-- /.primary-block -->
+            </div><!-- /.container -->
+            <a class="scrollup hidden-xs hidden-sm" href="#" style="display: none;"><img src="assets/images/top-scroll.png" alt="" ></a>
+        </div>
+
+        <div class="container">       
+        </div><!-- /.container -->
+
+        </div><!-- /.wrapper -->
+
+
+
+                        <!-- JavaScripts placed at the end of the document so the pages load faster -->
+
+                        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+                        <script src="assets/js/jquery-1.12.0.min.js"></script>
+                        <script src="assets/js/bootstrap.min.js"></script>
+                        <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+                        <script src="assets/js/echo.min.js"></script>
+                        <script src="assets/js/jquery.easing.min.js"></script>
+                        <script src="assets/js/owl.carousel.min.js"></script>
+                        <script src="assets/js/wow.min.js"></script>
+                        <script src="assets/js/bootstrap-select.min.js"></script>
+                        <script src="assets/js/jquery-ui.min.js"></script>
+                        <script src="assets/js/scripts.js"></script>
+                    </body>
+                    </html>
